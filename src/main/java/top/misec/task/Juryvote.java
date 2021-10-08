@@ -48,7 +48,7 @@ public class Juryvote implements Task {
                 JsonObject votejsonObject = HttpUtils.doPost(ApiList.JURY_VOTE,requestBody);
                 if (votejsonObject.get("code").getAsInt() == 0){
                     log.info("案件编号:{}处理成功,本次运行已处理{}件案件.",caseid,i);
-                    i = ++i;
+                    i++;
                     Randompause(0); //随机暂停
                 } else {
                     log.error("案件编号:{}处理失败。错误报告：{}",caseid,votejsonObject.get("message").getAsString());
